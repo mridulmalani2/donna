@@ -534,5 +534,118 @@
     "relationshipDuration": 10,
     "lastContactDate": "2025-12-26",
     "totalAUM": 9500000
+  },
+  {
+    "id": "client-031",
+    "name": "Jean-Luc Moreau",
+    "photo": "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&h=400&fit=crop",
+    "age": 62,
+    "profession": "Founder, Mid-Sized Logistics Company",
+    "priorityScore": 75,
+    "panicIndicator": false,
+    "relationshipDuration": 8,
+    "lastContactDate": "2026-01-12",
+    "totalAUM": 22800000,
+    "prospectionNetwork": {
+      "connections": [
+        {
+          "id": "conn-jl-001",
+          "name": "Adrien Lefebvre",
+          "role": "Operations Director, MLI",
+          "relationshipToClient": "Professional 'Right Hand'",
+          "triggerEvent": "Leading the day-to-day operations during Jean-Luc's succession phase",
+          "suggestedNextStep": "Offer a session on executive financial planning and liquidity",
+          "connectionStrength": 9
+        },
+        {
+          "id": "conn-jl-002",
+          "name": "Elise Bertrand",
+          "role": "CEO, Maritime Logistics",
+          "relationshipToClient": "Industry Peer / Co-investor",
+          "triggerEvent": "Publicly seeking new shipping infrastructure investments",
+          "suggestedNextStep": "Share market insights on logistics sector volatility",
+          "connectionStrength": 7
+        },
+        {
+          "id": "conn-jl-003",
+          "name": "Thierry Vasseur",
+          "role": "Senior Consultant, Vasseur & Co.",
+          "relationshipToClient": "Business Associate / Former Supplier",
+          "triggerEvent": "Recently mentioned 'volatility anxiety' regarding his own manufacturing firm",
+          "suggestedNextStep": "Introduction call to discuss wealth preservation strategies",
+          "connectionStrength": 8
+        },
+        {
+          "id": "conn-jl-004",
+          "name": "François Dubois",
+          "role": "Founder, Dubois Equipment",
+          "relationshipToClient": "Close Business Associate",
+          "triggerEvent": "Currently seeking a new private bank for better personalized service",
+          "suggestedNextStep": "Position as a specialized resource for business transition wealth management",
+          "connectionStrength": 6
+        },
+        {
+          "id": "conn-jl-005",
+          "name": "Marc Moreau",
+          "role": "Junior Partner / Successor",
+          "relationshipToClient": "Adult Son / Family",
+          "triggerEvent": "Preparing to take over a minority stake in the family business",
+          "suggestedNextStep": "Succession planning workshop focused on tax-efficient wealth transfer",
+          "connectionStrength": 9
+        }
+      ]
+    }
+  },
+  {
+    "id": "client-032",
+    "name": "Alessandro Moretti",
+    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    "age": 53,
+    "profession": "Managing Director, Luxury Brand",
+    "priorityScore": 78,
+    "panicIndicator": false,
+    "relationshipDuration": 5,
+    "lastContactDate": "2026-01-13",
+    "totalAUM": 28500000,
+    "prospectionNetwork": {
+      "connections": [
+        {
+          "id": "conn-am-001",
+          "name": "Elena Rossi",
+          "role": "Chief Marketing Officer (CMO)",
+          "relationshipToClient": "Direct Report / Close Peer",
+          "triggerEvent": "Recently promoted to global executive committee; significant salary/bonus hike",
+          "suggestedNextStep": "Educational invite: 'Managing Executive Windfalls' webinar",
+          "connectionStrength": 8
+        },
+        {
+          "id": "conn-am-002",
+          "name": "Marco Valenti",
+          "role": "Founder, Valenti Artisans",
+          "relationshipToClient": "Strategic Supplier",
+          "triggerEvent": "Company is being courted for acquisition by a major luxury group",
+          "suggestedNextStep": "Pre-acquisition wealth structuring consultation",
+          "connectionStrength": 7
+        },
+        {
+          "id": "conn-am-003",
+          "name": "Giulia Moretti",
+          "role": "Architect / Designer",
+          "relationshipToClient": "Sister",
+          "triggerEvent": "Opening a new flagship studio in New York; needs cross-border tax advice",
+          "suggestedNextStep": "Warm intro call regarding international wealth transfer",
+          "connectionStrength": 9
+        },
+        {
+          "id": "conn-am-004",
+          "name": "Lorenzo Conti",
+          "role": "VC Partner, Milano Tech",
+          "relationshipToClient": "Investment Partner",
+          "triggerEvent": "Closing a new €100M fashion-tech fund",
+          "suggestedNextStep": "Share thought leadership on Alternative Assets and Private Equity",
+          "connectionStrength": 5
+        }
+      ]
+    }
   }
 ]
