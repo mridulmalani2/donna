@@ -1,15 +1,20 @@
 import { PriorityBreakdown as PriorityBreakdownType } from "@/lib/data/types";
+import CollapsibleSection from "./CollapsibleSection";
 
 interface PriorityBreakdownProps {
   priorityBreakdown: PriorityBreakdownType;
 }
 
 export default function PriorityBreakdown({ priorityBreakdown }: PriorityBreakdownProps) {
+  const summary = "View detailed factors contributing to priority score";
+
   return (
-    <div>
-      <h2 className="font-heading text-base uppercase tracking-wider text-donna-text-tertiary mb-4 pb-2 border-b border-donna-text-tertiary/20">
-        Priority Score Breakdown
-      </h2>
+    <CollapsibleSection
+      title="Priority Score Breakdown"
+      summary={summary}
+      defaultExpanded={false}
+      variant="muted"
+    >
       <div className="space-y-5">
         <div>
           <div className="flex items-center gap-2 mb-2">
@@ -44,6 +49,6 @@ export default function PriorityBreakdown({ priorityBreakdown }: PriorityBreakdo
           </div>
         )}
       </div>
-    </div>
+    </CollapsibleSection>
   );
 }

@@ -3,9 +3,27 @@
 import { useState } from "react";
 import { Communication } from "@/lib/data/types";
 import { formatDate } from "@/lib/data/clients";
+import CollapsibleSection from "./CollapsibleSection";
 
 interface RecentCommunicationsProps {
   communications: Communication[];
+}
+
+// Generate communications summary
+function generateCommsSummary(communications: Communication[]): string {
+  const recent = communications.slice(0, 5);
+  const negativeCount = recent.filter(c => c.sentiment === "negative").length;
+  const positiveCount = recent.filter(c => c.sentiment === "positive").length;
+
+  if (negativeCount >= 2) {
+    return `${recent.length} communications in last 30 days, ${negativeCount} showing negative sentiment`;
+  }
+
+  if (positiveCount >= 3) {
+    return `${recent.length} communications in last 30 days, sentiment trending positive`;
+  }
+
+  return `${recent.length} communications in last 30 days, mixed sentiment`;
 }
 
 export default function RecentCommunications({ communications }: RecentCommunicationsProps) {
@@ -25,12 +43,14 @@ export default function RecentCommunications({ communications }: RecentCommunica
 
   // Show last 5 communications
   const recentComms = communications.slice(0, 5);
+  const summary = generateCommsSummary(communications);
 
   return (
-    <div>
-      <h2 className="font-heading text-base uppercase tracking-wider text-donna-text-tertiary mb-4 pb-2 border-b border-donna-text-tertiary/20">
-        Recent Communications
-      </h2>
+    <CollapsibleSection
+      title="Recent Communications"
+      summary={summary}
+      defaultExpanded={false}
+    >
       <div className="space-y-4">
         {recentComms.map((comm, index) => (
           <div
@@ -72,6 +92,6 @@ export default function RecentCommunications({ communications }: RecentCommunica
           </div>
         ))}
       </div>
-    </div>
+    </CollapsibleSection>
   );
 }

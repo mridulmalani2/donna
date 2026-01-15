@@ -37,10 +37,10 @@ export default function RedFlagMovements({ movements }: RedFlagMovementsProps) {
   };
 
   return (
-    <div className="bg-donna-red/5 rounded-lg p-6 border border-donna-red/20">
+    <div className="bg-donna-red/5 rounded-lg p-5 border border-donna-red/20">
       <div className="flex items-center gap-2 mb-4">
-        <div className="w-2 h-2 bg-donna-red rounded-full animate-pulse"></div>
-        <h2 className="font-heading text-base uppercase tracking-wider text-donna-red">
+        <div className="w-1.5 h-1.5 bg-donna-red rounded-full animate-pulse"></div>
+        <h2 className="font-heading text-sm uppercase tracking-wider text-donna-red/80">
           Red-Flag Asset Movements
         </h2>
       </div>
