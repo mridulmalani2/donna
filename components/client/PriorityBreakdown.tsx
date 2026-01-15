@@ -6,37 +6,39 @@ interface PriorityBreakdownProps {
 
 export default function PriorityBreakdown({ priorityBreakdown }: PriorityBreakdownProps) {
   return (
-    <div className="bg-white rounded-lg border border-slate-200 p-6">
-      <h2 className="text-xl font-semibold text-slate-900 mb-4">Priority Score Breakdown</h2>
-      <div className="space-y-4">
+    <div>
+      <h2 className="font-heading text-base uppercase tracking-wider text-donna-text-tertiary mb-4 pb-2 border-b border-donna-text-tertiary/20">
+        Priority Score Breakdown
+      </h2>
+      <div className="space-y-5">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-2 h-2 bg-navy rounded-full"></div>
-            <h3 className="text-sm font-semibold text-slate-900">Panic / Sentiment</h3>
+            <div className="w-1.5 h-1.5 bg-donna-cyan rounded-full"></div>
+            <h3 className="font-heading text-sm font-medium text-donna-text-primary">Panic / Sentiment</h3>
           </div>
-          <p className="text-sm text-slate-700 ml-4">{priorityBreakdown.panicSentimentExplanation}</p>
+          <p className="font-body text-sm text-donna-text-secondary ml-4">{priorityBreakdown.panicSentimentExplanation}</p>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-2 h-2 bg-navy rounded-full"></div>
-            <h3 className="text-sm font-semibold text-slate-900">AUM Level</h3>
+            <div className="w-1.5 h-1.5 bg-donna-cyan rounded-full"></div>
+            <h3 className="font-heading text-sm font-medium text-donna-text-primary">AUM Level</h3>
           </div>
-          <p className="text-sm text-slate-700 ml-4">{priorityBreakdown.aumLevel}</p>
+          <p className="font-body text-sm text-donna-text-secondary ml-4">{priorityBreakdown.aumLevel}</p>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-2 h-2 bg-navy rounded-full"></div>
-            <h3 className="text-sm font-semibold text-slate-900">Portfolio Movement</h3>
+            <div className="w-1.5 h-1.5 bg-donna-cyan rounded-full"></div>
+            <h3 className="font-heading text-sm font-medium text-donna-text-primary">Portfolio Movement</h3>
           </div>
-          <p className="text-sm text-slate-700 ml-4">{priorityBreakdown.portfolioMovement}</p>
+          <p className="font-body text-sm text-donna-text-secondary ml-4">{priorityBreakdown.portfolioMovement}</p>
         </div>
         {priorityBreakdown.overdueCheckIn && (
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              <h3 className="text-sm font-semibold text-red-700">Overdue Check-In</h3>
+              <div className="w-1.5 h-1.5 bg-donna-red rounded-full animate-pulse"></div>
+              <h3 className="font-heading text-sm font-medium text-donna-red">Overdue Check-In</h3>
             </div>
-            <p className="text-sm text-slate-700 ml-4">
+            <p className="font-body text-sm text-donna-text-secondary ml-4">
               {priorityBreakdown.overdueCheckInDays} day{priorityBreakdown.overdueCheckInDays !== 1 ? "s" : ""} overdue for quarterly review
             </p>
           </div>

@@ -20,8 +20,11 @@ export default function ClientList({ clients }: ClientListProps) {
     return matchesSearch && matchesPanic;
   });
 
+  const featuredClient = filteredClients[0]; // Highest priority
+  const otherClients = filteredClients.slice(1);
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-4">
         <input
@@ -29,36 +32,38 @@ export default function ClientList({ clients }: ClientListProps) {
           placeholder={t.searchPlaceholder}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="flex-1 px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent"
+          className="flex-1 px-4 py-3 bg-donna-bg-secondary/50 soft-border-cyan rounded-lg
+                     font-body text-donna-text-primary placeholder-donna-text-tertiary
+                     focus:outline-none focus:bg-donna-bg-tertiary transition-smooth"
         />
         <div className="flex gap-2">
           <button
             onClick={() => setFilterPanic(null)}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`px-4 py-2 rounded-lg font-heading font-medium transition-smooth ${
               filterPanic === null
-                ? "bg-navy text-white"
-                : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                ? "bg-donna-cyan text-donna-bg-primary"
+                : "bg-donna-bg-secondary text-donna-text-secondary hover:bg-donna-bg-tertiary"
             }`}
           >
             All
           </button>
           <button
             onClick={() => setFilterPanic(true)}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 ${
+            className={`px-4 py-2 rounded-lg font-heading font-medium transition-smooth flex items-center gap-2 ${
               filterPanic === true
-                ? "bg-navy text-white"
-                : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                ? "bg-donna-cyan text-donna-bg-primary"
+                : "bg-donna-bg-secondary text-donna-text-secondary hover:bg-donna-bg-tertiary"
             }`}
           >
-            <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+            <span className="w-2 h-2 bg-donna-red rounded-full"></span>
             Panic
           </button>
           <button
             onClick={() => setFilterPanic(false)}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`px-4 py-2 rounded-lg font-heading font-medium transition-smooth ${
               filterPanic === false
-                ? "bg-navy text-white"
-                : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                ? "bg-donna-cyan text-donna-bg-primary"
+                : "bg-donna-bg-secondary text-donna-text-secondary hover:bg-donna-bg-tertiary"
             }`}
           >
             Stable
@@ -67,20 +72,39 @@ export default function ClientList({ clients }: ClientListProps) {
       </div>
 
       {/* Results count */}
-      <div className="text-sm text-slate-600">
+      <div className="font-body text-sm text-donna-text-tertiary">
         Showing {filteredClients.length} of {clients.length} clients
       </div>
 
-      {/* Client grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredClients.map((client) => (
-          <PriorityCard key={client.id} client={client} />
-        ))}
-      </div>
-
-      {filteredClients.length === 0 && (
-        <div className="text-center py-12 text-slate-500">
+      {filteredClients.length === 0 ? (
+        <div className="text-center py-16 font-body text-donna-text-secondary">
           No clients found matching your criteria
+        </div>
+      ) : (
+        <div className="space-y-6">
+          {/* Featured Client - Takes up significant visual space */}
+          {featuredClient && (
+            <div className="mb-8">
+              <h3 className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-4">
+                Highest Priority
+              </h3>
+              <PriorityCard client={featuredClient} variant="featured" />
+            </div>
+          )}
+
+          {/* Other Clients - Compact list */}
+          {otherClients.length > 0 && (
+            <div>
+              <h3 className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-4">
+                Other Clients
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {otherClients.map((client) => (
+                  <PriorityCard key={client.id} client={client} variant="compact" />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

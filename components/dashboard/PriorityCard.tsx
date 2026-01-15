@@ -4,56 +4,150 @@ import { formatCurrency, formatDate } from "@/lib/data/clients";
 
 interface PriorityCardProps {
   client: ClientSummary;
+  variant?: "featured" | "compact";
 }
 
-export default function PriorityCard({ client }: PriorityCardProps) {
-  const priorityLevel = client.priorityScore >= 80 ? "high" : client.priorityScore >= 60 ? "medium" : "low";
+export default function PriorityCard({ client, variant = "compact" }: PriorityCardProps) {
+  const isFeatured = variant === "featured";
 
+  if (isFeatured) {
+    return (
+      <Link href={`/client/${client.id}`}>
+        <div className="relative bg-depth-2 rounded-lg p-8 transition-smooth cursor-pointer hover:bg-donna-bg-tertiary group">
+          {/* Subtle glow border */}
+          <div className="absolute inset-0 rounded-lg soft-border-cyan opacity-0 group-hover:opacity-100 transition-smooth pointer-events-none"></div>
+
+          <div className="flex items-start gap-6">
+            {/* Large Avatar */}
+            {client.photo && (
+              <div className="relative flex-shrink-0">
+                <div className="w-24 h-24 rounded-full overflow-hidden soft-border-cyan glow-cyan">
+                  <img
+                    src={client.photo}
+                    alt={client.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {client.panicIndicator && (
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-donna-red rounded-full animate-pulse glow-red"></div>
+                )}
+              </div>
+            )}
+
+            {/* Client Info */}
+            <div className="flex-grow">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h2 className="font-heading text-3xl font-semibold text-donna-text-primary mb-2 flex items-center gap-3">
+                    {client.name}
+                    {client.panicIndicator && (
+                      <span className="font-heading text-xs uppercase tracking-wider px-3 py-1 bg-donna-red/20 text-donna-red rounded-full">
+                        PANIC
+                      </span>
+                    )}
+                  </h2>
+                  <p className="font-body text-sm text-donna-text-secondary mb-1">
+                    {client.profession}
+                  </p>
+                </div>
+
+                {/* Large Priority Score */}
+                <div className="text-right">
+                  <div className="font-heading text-6xl font-bold text-donna-cyan glow-cyan-strong">
+                    {client.priorityScore}
+                  </div>
+                  <div className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mt-1">
+                    Priority
+                  </div>
+                </div>
+              </div>
+
+              {/* Stats Row */}
+              <div className="flex items-center gap-8 mt-6">
+                <div>
+                  <div className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-1">
+                    AUM
+                  </div>
+                  <div className="font-heading text-xl font-semibold text-donna-text-primary">
+                    {formatCurrency(client.totalAUM)}
+                  </div>
+                </div>
+                <div>
+                  <div className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-1">
+                    Last Contact
+                  </div>
+                  <div className="font-body text-sm text-donna-text-secondary">
+                    {formatDate(client.lastContactDate)}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Link>
+    );
+  }
+
+  // Compact variant
   return (
     <Link href={`/client/${client.id}`}>
-      <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 cursor-pointer">
-        <div className="flex items-start justify-between mb-4">
-          <div className="flex items-center gap-4">
-            {client.photo && (
-              <div className="w-14 h-14 rounded-full overflow-hidden bg-slate-200">
+      <div className="relative bg-donna-bg-secondary/50 rounded-lg p-4 transition-smooth cursor-pointer hover:bg-donna-bg-tertiary group">
+        {/* Subtle left accent on hover */}
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-donna-cyan opacity-0 group-hover:opacity-100 transition-smooth rounded-l-lg"></div>
+
+        <div className="flex items-center gap-4">
+          {/* Compact Avatar */}
+          {client.photo && (
+            <div className="relative flex-shrink-0">
+              <div className="w-12 h-12 rounded-full overflow-hidden soft-border-cyan">
                 <img
                   src={client.photo}
                   alt={client.name}
                   className="w-full h-full object-cover"
                 />
               </div>
-            )}
-            <div>
-              <h3 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
+              {client.panicIndicator && (
+                <div className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-donna-red rounded-full"></div>
+              )}
+            </div>
+          )}
+
+          {/* Client Info */}
+          <div className="flex-grow min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              <h3 className="font-heading text-base font-medium text-donna-text-primary truncate">
                 {client.name}
-                {client.panicIndicator && (
-                  <span className="inline-block w-2 h-2 bg-red-500 rounded-full" title="Panic indicator"></span>
-                )}
               </h3>
-              <p className="text-sm text-slate-600">{client.profession}</p>
+              {client.panicIndicator && (
+                <span className="font-heading text-xs uppercase text-donna-red">
+                  PANIC
+                </span>
+              )}
             </div>
+            <p className="font-body text-xs text-donna-text-secondary truncate">
+              {client.profession}
+            </p>
           </div>
-          <div className="text-right">
-            <div className="flex items-center gap-2 justify-end">
-              <span className="text-2xl font-bold text-navy">{client.priorityScore}</span>
-              <div className={`w-3 h-3 rounded-full ${
-                priorityLevel === "high" ? "bg-red-500" :
-                priorityLevel === "medium" ? "bg-yellow-500" :
-                "bg-green-500"
-              }`}></div>
+
+          {/* Priority Score */}
+          <div className="text-right flex-shrink-0">
+            <div className="font-heading text-2xl font-bold text-donna-cyan">
+              {client.priorityScore}
             </div>
-            <p className="text-xs text-slate-500 mt-1">Priority Score</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100">
-          <div>
-            <p className="text-xs text-slate-500 mb-1">Assets Under Management</p>
-            <p className="text-lg font-semibold text-slate-900">{formatCurrency(client.totalAUM)}</p>
+        {/* Additional Info Row */}
+        <div className="flex items-center gap-6 mt-3 pt-3 border-t border-donna-text-tertiary/10">
+          <div className="flex-1">
+            <div className="font-body text-xs text-donna-text-tertiary">
+              {formatCurrency(client.totalAUM)}
+            </div>
           </div>
-          <div>
-            <p className="text-xs text-slate-500 mb-1">Last Contact</p>
-            <p className="text-sm text-slate-700">{formatDate(client.lastContactDate)}</p>
+          <div className="flex-shrink-0">
+            <div className="font-body text-xs text-donna-text-tertiary">
+              {formatDate(client.lastContactDate)}
+            </div>
           </div>
         </div>
       </div>

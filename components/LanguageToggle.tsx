@@ -7,14 +7,14 @@ export default function LanguageToggle() {
   const { language, setLanguage } = useTranslation();
 
   return (
-    <div className="flex items-center gap-1 bg-slate-100 rounded-lg p-1">
+    <div className="flex items-center gap-1 bg-donna-bg-secondary/50 rounded-lg p-1">
       <button
         onClick={() => setLanguage('en')}
         className={`
-          px-3 py-1.5 rounded-md text-sm font-medium transition-all
+          px-3 py-1.5 rounded-md font-heading text-sm font-medium transition-smooth
           ${language === 'en'
-            ? 'bg-white text-navy shadow-sm'
-            : 'text-slate-600 hover:text-slate-900'
+            ? 'bg-donna-cyan text-donna-bg-primary'
+            : 'text-donna-text-tertiary hover:text-donna-text-primary'
           }
         `}
       >
@@ -23,10 +23,10 @@ export default function LanguageToggle() {
       <button
         onClick={() => setLanguage('fr')}
         className={`
-          px-3 py-1.5 rounded-md text-sm font-medium transition-all
+          px-3 py-1.5 rounded-md font-heading text-sm font-medium transition-smooth
           ${language === 'fr'
-            ? 'bg-white text-navy shadow-sm'
-            : 'text-slate-600 hover:text-slate-900'
+            ? 'bg-donna-cyan text-donna-bg-primary'
+            : 'text-donna-text-tertiary hover:text-donna-text-primary'
           }
         `}
       >
