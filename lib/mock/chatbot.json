@@ -1,0 +1,40 @@
+{
+  "client-001": [
+    {
+      "questionId": "q1",
+      "questionText": "Why is this client high priority today?",
+      "answerTemplate": "Margaret Chen has a priority score of 94, placing her in your top tier. Several factors contribute:\n\n1. **Panic Indicator Active**: Recent market volatility in tech has triggered significant anxiety\n2. **High AUM at Risk**: $18.5M portfolio (top 5% of your book)\n3. **Unusual Withdrawal Pattern**: Three large withdrawals totaling $2.1M in 45 days\n4. **Overdue Check-in**: 7 days since scheduled quarterly review\n5. **Red Flag Activity**: Unilateral liquidation of major position without consultation\n\nThe combination of high value, demonstrated anxiety, and recent autonomous actions suggests immediate attention is needed to preserve the relationship.",
+      "category": "priority"
+    },
+    {
+      "questionId": "q2",
+      "questionText": "Summarize my last interaction",
+      "answerTemplate": "Your most recent contact was January 8, 2026:\n\n**Channel**: Phone (voicemail)\n**Summary**: You left a voicemail regarding quarterly review scheduling. No response received yet.\n\n**Previous interaction** (December 28, 2025):\n**Channel**: Email from client\n**Sentiment**: Negative\n**Content**: Margaret notified you *after* liquidating her entire NVDA position ($850K). Her message was brief and somewhat defensive: \"I know we discussed holding, but I'm not comfortable with the concentration anymore.\"\n\nThis represents a concerning pattern - the client is making major decisions unilaterally and has become difficult to reach.",
+      "category": "history"
+    },
+    {
+      "questionId": "q3",
+      "questionText": "What are the main open topics?",
+      "answerTemplate": "There are 4 open topics for Margaret Chen, all requiring urgent attention:\n\n**1. Tech sector concentration concerns** (High Priority - New)\nClient has unilaterally liquidated positions. You need to rebuild trust and present a revised allocation strategy.\n\n**2. Schedule Q4 review meeting** (High Priority - Pending Client)\nLeft voicemail on Jan 8, awaiting response. Client has been difficult to reach.\n\n**3. Understand reason for recent withdrawals** (High Priority - New)\nClient cited 'personal family matter' for $500K withdrawal, but the pattern suggests a potentially larger issue requiring sensitive inquiry.\n\n**4. Present alternative investment opportunities** (Medium Priority - In Progress)\nClient expressed interest in real estate and infrastructure alternatives during your last meeting in November.",
+      "category": "topics"
+    },
+    {
+      "questionId": "q4",
+      "questionText": "Has sentiment changed recently?",
+      "answerTemplate": "Yes, there has been a marked deterioration in Margaret's sentiment over the past 2 months:\n\n**December 20 phone call**: Negative shift\n- Client was defensive and impatient\n- Interrupted your explanation with \"I know what diversification is, John. I ran finance at a Fortune 500 company.\"\n- Call ended abruptly\n\n**December 28 email**: Continued negative tone\n- Notified you of major trade after execution\n- Brief, somewhat dismissive language\n\n**January 8**: No response\n- Uncharacteristic non-response to your outreach\n\n**Historical context**: Prior to November, Margaret was generally satisfied. The November meeting showed early signs of anxiety (\"nervous about markets in general\"), but her recent behavior represents a significant escalation.\n\nThis shift coincides with broader tech sector volatility and may be connected to her former employer's recent layoffs.",
+      "category": "sentiment"
+    },
+    {
+      "questionId": "q5",
+      "questionText": "Is there any prospecting opportunity?",
+      "answerTemplate": "At this moment, **retention takes absolute priority over prospecting**. Margaret Chen represents $18.5M in AUM and is showing flight risk.\n\nHowever, once the relationship is stabilized, there may be **future opportunities**:\n\n1. **Family wealth discussion**: The $500K withdrawal for \"personal family matter\" could indicate extended family planning needs. Once trust is rebuilt, this could open doors to:\n   - Estate planning review\n   - Potential introductions to adult children or other family members\n   - Multi-generational wealth strategy\n\n2. **Professional network**: As a former Fortune 500 CFO with 12 years of relationship history, Margaret likely has high-net-worth peers. Her satisfaction could lead to referrals.\n\n**Immediate recommendation**: Focus entirely on addressing her concerns, rebuilding trust, and demonstrating value. Prospecting discussions should wait until sentiment stabilizes.",
+      "category": "opportunities"
+    },
+    {
+      "questionId": "q6",
+      "questionText": "What does her portfolio look like?",
+      "answerTemplate": "**Total AUM**: $18.5M (down from ~$20.6M before recent withdrawals)\n\n**Current Allocation**:\n- Equities: 62% ($11.47M)\n- Fixed Income: 23% ($4.26M)\n- Alternatives: 12% ($2.22M)\n- Cash: 3% ($0.56M)\n\n**Key Characteristics**:\n- **Dominant Exposure**: Technology sector represents 48% of equity holdings\n- **Recent Activity**: Down $2.1M (-10.2%) in past 45 days through withdrawals and liquidations\n\n**Red Flag Movements**:\n1. Sold entire NVDA position ($850K) on Dec 28 without consultation\n2. Moved $750K from growth equities to money market on Dec 15\n3. Withdrew $500K cash on Dec 3\n\n**Assessment**: Portfolio shows signs of panic-driven de-risking. The unilateral moves suggest loss of confidence in either the market, the strategy, or the advisory relationship itself.",
+      "category": "opportunities"
+    }
+  ]
+}
