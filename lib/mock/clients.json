@@ -1,0 +1,489 @@
+[
+  {
+    "id": "client-001",
+    "name": "Margaret Chen",
+    "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    "age": 58,
+    "profession": "Former CFO, Tech Sector",
+    "priorityScore": 94,
+    "panicIndicator": true,
+    "relationshipDuration": 12,
+    "lastContactDate": "2026-01-08",
+    "contactInfo": {
+      "email": "margaret.chen@email.com",
+      "phone": "+1 (415) 555-0142",
+      "address": {
+        "street": "2847 Pacific Heights Boulevard",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipCode": "94115",
+        "country": "USA"
+      },
+      "preferredContactMethod": "phone"
+    },
+    "priorityBreakdown": {
+      "panicSentimentExplanation": "Recent market volatility in tech sector has triggered significant anxiety. Client expressed concern about portfolio concentration during last call. Mentioned considering major reallocation.",
+      "aumLevel": "High-value client: $18.5M AUM represents top 5% of book",
+      "portfolioMovement": "Unusual activity: 3 large withdrawals totaling $2.1M in past 45 days",
+      "overdueCheckIn": true,
+      "overdueCheckInDays": 7
+    },
+    "assets": {
+      "totalAUM": 18500000,
+      "allocation": {
+        "equities": 62,
+        "fixedIncome": 23,
+        "alternatives": 12,
+        "cash": 3
+      },
+      "recentChange": {
+        "amount": -2100000,
+        "percentage": -10.2,
+        "direction": "decrease",
+        "timeframe": "45 days"
+      },
+      "dominantExposure": "Technology sector (48% of equities)"
+    },
+    "redFlagMovements": [
+      {
+        "severity": "high",
+        "description": "Liquidated entire position in NVDA ($850K) without consultation",
+        "date": "2025-12-28",
+        "impact": "Potential loss of confidence, missed recent 12% rebound"
+      },
+      {
+        "severity": "medium",
+        "description": "Moved $750K from growth equities to money market",
+        "date": "2025-12-15",
+        "impact": "Defensive positioning, possible panic selling"
+      },
+      {
+        "severity": "medium",
+        "description": "Requested withdrawal of $500K for 'personal reasons'",
+        "date": "2025-12-03",
+        "impact": "Potential liquidity needs or loss of trust"
+      }
+    ],
+    "communications": [
+      {
+        "date": "2026-01-08",
+        "channel": "phone",
+        "summary": "Left voicemail regarding quarterly review scheduling - no response yet",
+        "sentiment": "neutral"
+      },
+      {
+        "date": "2025-12-28",
+        "channel": "email",
+        "summary": "Client notified of NVDA liquidation after the fact. Brief, factual tone.",
+        "fullContent": "Hi John, I've decided to exit my Nvidia position entirely. I've already instructed the trade. I know we discussed holding, but I'm not comfortable with the concentration anymore. Let's talk next week. - Margaret",
+        "sentiment": "negative"
+      },
+      {
+        "date": "2025-12-20",
+        "channel": "phone",
+        "summary": "30-minute call. Client expressed anxiety about tech sector exposure, questioned diversification strategy. Defensive tone when discussing recent performance.",
+        "fullContent": "Client opened with concerns about tech sector volatility. Referenced recent layoffs at former company. When I explained our diversification rationale, she interrupted to say 'I know what diversification is, John. I ran finance at a Fortune 500 company.' Discussed moving to more conservative allocation. Agreed to review options but she seemed impatient. Call ended somewhat abruptly.",
+        "sentiment": "negative"
+      },
+      {
+        "date": "2025-12-10",
+        "channel": "email",
+        "summary": "Client requested withdrawal of $500K, cited 'personal family matter'",
+        "fullContent": "John, I need to withdraw $500,000 as soon as possible. It's for a personal family matter I'd rather not discuss. Please process this week. Thanks, Margaret",
+        "sentiment": "neutral"
+      },
+      {
+        "date": "2025-11-15",
+        "channel": "in-person",
+        "summary": "Quarterly review meeting at office. Discussed performance, rebalancing. Client seemed satisfied but mentioned feeling 'nervous about markets in general.'",
+        "sentiment": "neutral"
+      }
+    ],
+    "openTopics": [
+      {
+        "id": "topic-001",
+        "title": "Urgent: Address tech sector concentration concerns",
+        "status": "new",
+        "owner": "John Mitchell",
+        "priority": "high",
+        "createdDate": "2025-12-28",
+        "description": "Client has unilaterally liquidated positions. Need to rebuild trust and present revised allocation strategy."
+      },
+      {
+        "id": "topic-002",
+        "title": "Schedule Q4 review meeting",
+        "status": "pending-client",
+        "owner": "John Mitchell",
+        "priority": "high",
+        "createdDate": "2026-01-08",
+        "description": "Left voicemail, awaiting response. Client has been difficult to reach."
+      },
+      {
+        "id": "topic-003",
+        "title": "Understand reason for recent withdrawals",
+        "status": "new",
+        "owner": "John Mitchell",
+        "priority": "high",
+        "createdDate": "2025-12-10",
+        "description": "Client cited 'personal family matter' but pattern suggests possible larger issue. Need sensitive inquiry."
+      },
+      {
+        "id": "topic-004",
+        "title": "Present alternative investment opportunities",
+        "status": "in-progress",
+        "owner": "John Mitchell",
+        "priority": "medium",
+        "createdDate": "2025-11-20",
+        "description": "Client expressed interest in real estate and infrastructure alternatives during last meeting."
+      }
+    ]
+  },
+  {
+    "id": "client-002",
+    "name": "Robert Blackwell",
+    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    "age": 52,
+    "profession": "Hedge Fund Manager",
+    "priorityScore": 87,
+    "panicIndicator": false,
+    "relationshipDuration": 8,
+    "lastContactDate": "2025-12-18",
+    "totalAUM": 24300000
+  },
+  {
+    "id": "client-003",
+    "name": "Patricia Rodriguez",
+    "photo": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    "age": 64,
+    "profession": "Retired Pharmaceutical Executive",
+    "priorityScore": 82,
+    "panicIndicator": true,
+    "relationshipDuration": 15,
+    "lastContactDate": "2025-12-22",
+    "totalAUM": 16800000
+  },
+  {
+    "id": "client-004",
+    "name": "James Morrison",
+    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    "age": 47,
+    "profession": "Private Equity Partner",
+    "priorityScore": 79,
+    "panicIndicator": false,
+    "relationshipDuration": 6,
+    "lastContactDate": "2026-01-05",
+    "totalAUM": 31200000
+  },
+  {
+    "id": "client-005",
+    "name": "Sarah Hoffman",
+    "photo": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop",
+    "age": 55,
+    "profession": "Real Estate Developer",
+    "priorityScore": 76,
+    "panicIndicator": false,
+    "relationshipDuration": 11,
+    "lastContactDate": "2025-12-29",
+    "totalAUM": 19500000
+  },
+  {
+    "id": "client-006",
+    "name": "David Park",
+    "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+    "age": 61,
+    "profession": "Investment Banker",
+    "priorityScore": 74,
+    "panicIndicator": false,
+    "relationshipDuration": 13,
+    "lastContactDate": "2025-12-20",
+    "totalAUM": 22100000
+  },
+  {
+    "id": "client-007",
+    "name": "Jennifer Walsh",
+    "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+    "age": 49,
+    "profession": "Tech Entrepreneur",
+    "priorityScore": 71,
+    "panicIndicator": true,
+    "relationshipDuration": 4,
+    "lastContactDate": "2025-12-12",
+    "totalAUM": 14200000
+  },
+  {
+    "id": "client-008",
+    "name": "Michael Tanaka",
+    "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
+    "age": 59,
+    "profession": "Corporate Attorney",
+    "priorityScore": 68,
+    "panicIndicator": false,
+    "relationshipDuration": 9,
+    "lastContactDate": "2026-01-02",
+    "totalAUM": 12700000
+  },
+  {
+    "id": "client-009",
+    "name": "Elizabeth Montgomery",
+    "photo": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=400&fit=crop",
+    "age": 67,
+    "profession": "Retired CEO",
+    "priorityScore": 65,
+    "panicIndicator": false,
+    "relationshipDuration": 18,
+    "lastContactDate": "2025-12-28",
+    "totalAUM": 28400000
+  },
+  {
+    "id": "client-010",
+    "name": "Thomas Fitzgerald",
+    "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+    "age": 54,
+    "profession": "Surgeon",
+    "priorityScore": 63,
+    "panicIndicator": false,
+    "relationshipDuration": 7,
+    "lastContactDate": "2025-12-15",
+    "totalAUM": 9800000
+  },
+  {
+    "id": "client-011",
+    "name": "Amanda Lee",
+    "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+    "age": 43,
+    "profession": "Venture Capitalist",
+    "priorityScore": 61,
+    "panicIndicator": false,
+    "relationshipDuration": 3,
+    "lastContactDate": "2026-01-10",
+    "totalAUM": 17600000
+  },
+  {
+    "id": "client-012",
+    "name": "Christopher Nguyen",
+    "photo": "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=400&h=400&fit=crop",
+    "age": 56,
+    "profession": "Aerospace Engineer (Retired)",
+    "priorityScore": 58,
+    "panicIndicator": false,
+    "relationshipDuration": 14,
+    "lastContactDate": "2025-12-30",
+    "totalAUM": 11200000
+  },
+  {
+    "id": "client-013",
+    "name": "Rebecca Stone",
+    "photo": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+    "age": 51,
+    "profession": "Marketing Executive",
+    "priorityScore": 56,
+    "panicIndicator": false,
+    "relationshipDuration": 5,
+    "lastContactDate": "2025-12-19",
+    "totalAUM": 8900000
+  },
+  {
+    "id": "client-014",
+    "name": "Daniel Kowalski",
+    "photo": "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&h=400&fit=crop",
+    "age": 48,
+    "profession": "Software Architect",
+    "priorityScore": 54,
+    "panicIndicator": false,
+    "relationshipDuration": 6,
+    "lastContactDate": "2026-01-04",
+    "totalAUM": 13400000
+  },
+  {
+    "id": "client-015",
+    "name": "Catherine Beaumont",
+    "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
+    "age": 62,
+    "profession": "Art Gallery Owner",
+    "priorityScore": 52,
+    "panicIndicator": false,
+    "relationshipDuration": 10,
+    "lastContactDate": "2025-12-27",
+    "totalAUM": 15300000
+  },
+  {
+    "id": "client-016",
+    "name": "Steven Martinez",
+    "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
+    "age": 45,
+    "profession": "Restaurant Chain Owner",
+    "priorityScore": 49,
+    "panicIndicator": false,
+    "relationshipDuration": 8,
+    "lastContactDate": "2025-12-11",
+    "totalAUM": 7600000
+  },
+  {
+    "id": "client-017",
+    "name": "Nicole Harper",
+    "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+    "age": 53,
+    "profession": "Consultant",
+    "priorityScore": 47,
+    "panicIndicator": false,
+    "relationshipDuration": 12,
+    "lastContactDate": "2026-01-07",
+    "totalAUM": 10800000
+  },
+  {
+    "id": "client-018",
+    "name": "Richard Sullivan",
+    "photo": "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&h=400&fit=crop",
+    "age": 69,
+    "profession": "Retired Judge",
+    "priorityScore": 45,
+    "panicIndicator": false,
+    "relationshipDuration": 20,
+    "lastContactDate": "2025-12-23",
+    "totalAUM": 19700000
+  },
+  {
+    "id": "client-019",
+    "name": "Linda Chen-Williams",
+    "photo": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=400&fit=crop",
+    "age": 57,
+    "profession": "Biotechnology Executive",
+    "priorityScore": 43,
+    "panicIndicator": false,
+    "relationshipDuration": 9,
+    "lastContactDate": "2025-12-16",
+    "totalAUM": 12100000
+  },
+  {
+    "id": "client-020",
+    "name": "Gregory Foster",
+    "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&h=400&fit=crop",
+    "age": 50,
+    "profession": "Film Producer",
+    "priorityScore": 41,
+    "panicIndicator": false,
+    "relationshipDuration": 4,
+    "lastContactDate": "2026-01-09",
+    "totalAUM": 9200000
+  },
+  {
+    "id": "client-021",
+    "name": "Angela Thompson",
+    "photo": "https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=400&h=400&fit=crop",
+    "age": 46,
+    "profession": "University Professor",
+    "priorityScore": 39,
+    "panicIndicator": false,
+    "relationshipDuration": 11,
+    "lastContactDate": "2025-12-21",
+    "totalAUM": 6400000
+  },
+  {
+    "id": "client-022",
+    "name": "Brian O'Connor",
+    "photo": "https://images.unsplash.com/photo-1542178243-bc20204b769f?w=400&h=400&fit=crop",
+    "age": 58,
+    "profession": "Construction Company Owner",
+    "priorityScore": 37,
+    "panicIndicator": false,
+    "relationshipDuration": 13,
+    "lastContactDate": "2025-12-14",
+    "totalAUM": 14900000
+  },
+  {
+    "id": "client-023",
+    "name": "Diana Patel",
+    "photo": "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=400&h=400&fit=crop",
+    "age": 41,
+    "profession": "Fintech Founder",
+    "priorityScore": 35,
+    "panicIndicator": false,
+    "relationshipDuration": 2,
+    "lastContactDate": "2026-01-06",
+    "totalAUM": 8700000
+  },
+  {
+    "id": "client-024",
+    "name": "Marcus Williams",
+    "photo": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=400&fit=crop",
+    "age": 63,
+    "profession": "Professional Athlete (Retired)",
+    "priorityScore": 33,
+    "panicIndicator": false,
+    "relationshipDuration": 16,
+    "lastContactDate": "2025-12-25",
+    "totalAUM": 11800000
+  },
+  {
+    "id": "client-025",
+    "name": "Olivia Richardson",
+    "photo": "https://images.unsplash.com/photo-1464863979621-258859e62245?w=400&h=400&fit=crop",
+    "age": 39,
+    "profession": "Fashion Designer",
+    "priorityScore": 31,
+    "panicIndicator": false,
+    "relationshipDuration": 5,
+    "lastContactDate": "2025-12-31",
+    "totalAUM": 5800000
+  },
+  {
+    "id": "client-026",
+    "name": "Paul Anderson",
+    "photo": "https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=400&fit=crop",
+    "age": 55,
+    "profession": "Energy Sector Executive",
+    "priorityScore": 29,
+    "panicIndicator": false,
+    "relationshipDuration": 7,
+    "lastContactDate": "2025-12-17",
+    "totalAUM": 16200000
+  },
+  {
+    "id": "client-027",
+    "name": "Rachel Kim",
+    "photo": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&fit=crop",
+    "age": 44,
+    "profession": "Architect",
+    "priorityScore": 27,
+    "panicIndicator": false,
+    "relationshipDuration": 6,
+    "lastContactDate": "2026-01-03",
+    "totalAUM": 7100000
+  },
+  {
+    "id": "client-028",
+    "name": "Jonathan Cruz",
+    "photo": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&h=400&fit=crop",
+    "age": 66,
+    "profession": "Publishing Executive (Retired)",
+    "priorityScore": 25,
+    "panicIndicator": false,
+    "relationshipDuration": 19,
+    "lastContactDate": "2025-12-24",
+    "totalAUM": 13600000
+  },
+  {
+    "id": "client-029",
+    "name": "Victoria Santos",
+    "photo": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=400&fit=crop",
+    "age": 48,
+    "profession": "Cardiologist",
+    "priorityScore": 23,
+    "panicIndicator": false,
+    "relationshipDuration": 8,
+    "lastContactDate": "2026-01-11",
+    "totalAUM": 8300000
+  },
+  {
+    "id": "client-030",
+    "name": "Edward Zhang",
+    "photo": "https://images.unsplash.com/photo-1557862921-37829c790f19?w=400&h=400&fit=crop",
+    "age": 52,
+    "profession": "Commercial Pilot",
+    "priorityScore": 21,
+    "panicIndicator": false,
+    "relationshipDuration": 10,
+    "lastContactDate": "2025-12-26",
+    "totalAUM": 9500000
+  }
+]
