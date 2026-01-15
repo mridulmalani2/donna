@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ClientSummary } from "@/lib/data/types";
 import PriorityCard from "./PriorityCard";
+import { useTranslation } from "@/lib/context/LanguageContext";
 
 interface ClientListProps {
   clients: ClientSummary[];
@@ -11,6 +12,7 @@ interface ClientListProps {
 export default function ClientList({ clients }: ClientListProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterPanic, setFilterPanic] = useState<boolean | null>(null);
+  const { t } = useTranslation();
 
   const filteredClients = clients.filter((client) => {
     const matchesSearch = client.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -24,7 +26,7 @@ export default function ClientList({ clients }: ClientListProps) {
       <div className="flex flex-col sm:flex-row gap-4">
         <input
           type="text"
-          placeholder="Search clients..."
+          placeholder={t.searchPlaceholder}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="flex-1 px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent"

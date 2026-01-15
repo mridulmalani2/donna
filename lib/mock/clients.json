@@ -136,7 +136,56 @@
         "createdDate": "2025-11-20",
         "description": "Client expressed interest in real estate and infrastructure alternatives during last meeting."
       }
-    ]
+    ],
+    "prospectionNetwork": {
+      "connections": [
+        {
+          "id": "conn-001",
+          "name": "David Chen",
+          "role": "CEO, Chen Ventures",
+          "relationshipToClient": "Brother",
+          "triggerEvent": "Recently sold startup for $240M",
+          "suggestedNextStep": "Introduction call to discuss liquidity management and tax-efficient strategies",
+          "connectionStrength": 9
+        },
+        {
+          "id": "conn-002",
+          "name": "Lisa Wong",
+          "role": "VP Engineering, TechCorp",
+          "relationshipToClient": "Former colleague",
+          "triggerEvent": "Received $4M stock compensation package",
+          "suggestedNextStep": "Offer educational webinar on equity compensation strategies",
+          "connectionStrength": 6
+        },
+        {
+          "id": "conn-003",
+          "name": "Michael Foster",
+          "role": "Partner, Foster & Associates",
+          "relationshipToClient": "Former board colleague",
+          "triggerEvent": "Law firm considering succession planning",
+          "suggestedNextStep": "Share estate planning thought leadership",
+          "connectionStrength": 5
+        },
+        {
+          "id": "conn-004",
+          "name": "Sarah Mitchell",
+          "role": "CFO, BioTech Innovations",
+          "relationshipToClient": "Professional network",
+          "triggerEvent": "Company preparing for IPO in Q2 2026",
+          "suggestedNextStep": "Position as pre-IPO wealth advisory resource",
+          "connectionStrength": 4
+        },
+        {
+          "id": "conn-005",
+          "name": "James Patterson",
+          "role": "Founder, Patterson Consulting",
+          "relationshipToClient": "Client's advisor",
+          "triggerEvent": "Expanding to international markets",
+          "suggestedNextStep": "Offer cross-border tax and currency hedging consultation",
+          "connectionStrength": 7
+        }
+      ]
+    }
   },
   {
     "id": "client-002",

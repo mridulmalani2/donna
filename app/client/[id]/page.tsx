@@ -1,8 +1,13 @@
+'use client';
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getClientById, getChatbotQA } from "@/lib/data/clients";
 import Snapshot from "@/components/client/Snapshot";
 import Chatbot from "@/components/client/Chatbot";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useTranslation } from "@/lib/context/LanguageContext";
+import { use } from "react";
 
 interface ClientPageProps {
   params: Promise<{
@@ -10,9 +15,10 @@ interface ClientPageProps {
   }>;
 }
 
-export default async function ClientPage({ params }: ClientPageProps) {
-  const { id } = await params;
+export default function ClientPage({ params }: ClientPageProps) {
+  const { id } = use(params);
   const client = getClientById(id);
+  const { t } = useTranslation();
 
   if (!client) {
     notFound();
@@ -47,10 +53,11 @@ export default async function ClientPage({ params }: ClientPageProps) {
                 </svg>
               </Link>
               <div>
-                <h1 className="text-2xl font-bold text-navy">Client Intelligence File</h1>
-                <p className="text-sm text-slate-600">Private Wealth Management</p>
+                <h1 className="text-2xl font-bold text-navy">{t.appName}</h1>
+                <p className="text-sm text-slate-600">{t.appSubtitle}</p>
               </div>
             </div>
+            <LanguageToggle />
           </div>
         </div>
       </header>

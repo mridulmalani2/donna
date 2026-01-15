@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LanguageProvider } from "@/lib/context/LanguageContext";
 
 export const metadata: Metadata = {
-  title: "Client Intelligence File",
+  title: "Donna",
   description: "Private Wealth Management internal tool for client prioritization and intelligence",
 };
 
@@ -22,7 +23,9 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
