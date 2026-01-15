@@ -20,7 +20,15 @@ export default function HomePage() {
               <h1 className="text-3xl font-bold text-navy">{t.appName}</h1>
               <p className="text-slate-600 mt-1">{t.appSubtitle}</p>
             </div>
-            <LanguageToggle />
+            <div className="flex items-center gap-6">
+              <a
+                href="/portfolio"
+                className="text-sm font-medium text-slate-600 hover:text-navy transition-colors"
+              >
+                View Portfolio Demo
+              </a>
+              <LanguageToggle />
+            </div>
           </div>
         </div>
       </header>

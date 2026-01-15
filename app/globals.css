@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
 :root {
   --background: #ffffff;
@@ -14,6 +15,21 @@
   --slate-700: #334155;
   --slate-800: #1e293b;
   --slate-900: #0f172a;
+
+  /* Editorial Wealth Dashboard Palette */
+  --warm-ivory: #FAFAF8;
+  --soft-stone: #F5F4F1;
+  --charcoal: #1a1a1a;
+  --warm-black: #2a2a2a;
+  --stone-500: #78716c;
+  --stone-600: #57534e;
+  --stone-700: #44403c;
+  --stone-800: #292524;
+  --stone-900: #1c1917;
+  --bronze: #B8860B;
+  --bronze-dark: #8B6914;
+  --emerald-700: #047857;
+  --emerald-600: #059669;
 }
 
 @theme inline {
@@ -30,7 +46,21 @@
   --color-slate-700: var(--slate-700);
   --color-slate-800: var(--slate-800);
   --color-slate-900: var(--slate-900);
-  --font-sans: var(--font-inter);
+  --color-warm-ivory: var(--warm-ivory);
+  --color-soft-stone: var(--soft-stone);
+  --color-charcoal: var(--charcoal);
+  --color-warm-black: var(--warm-black);
+  --color-stone-500: var(--stone-500);
+  --color-stone-600: var(--stone-600);
+  --color-stone-700: var(--stone-700);
+  --color-stone-800: var(--stone-800);
+  --color-stone-900: var(--stone-900);
+  --color-bronze: var(--bronze);
+  --color-bronze-dark: var(--bronze-dark);
+  --color-emerald-700: var(--emerald-700);
+  --color-emerald-600: var(--emerald-600);
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
   --font-heading: var(--font-montserrat);
 }
 
@@ -42,4 +72,12 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans-editorial {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
