@@ -94,131 +94,96 @@ export default function ProspectionNetwork({ clientName, network }: ProspectionN
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* 3D Visualization */}
-        <div className="lg:col-span-2">
-          <div className="bg-slate-50 rounded-lg border border-slate-200 overflow-hidden">
-            <div className="h-[600px] relative">
+        {/* Connections List - Primary View */}
+        <div className="lg:col-span-2 space-y-3">
+          {network.connections.map((connection) => (
+            <button
+              key={connection.id}
+              onClick={() => handleNodeClick(graphData.nodes.find(n => n.id === connection.id))}
+              className={`w-full text-left bg-slate-50 hover:bg-slate-100 rounded-lg border transition-all p-4 ${
+                selectedNode?.id === connection.id
+                  ? 'border-navy bg-navy/5'
+                  : 'border-slate-200'
+              }`}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-3 mb-2">
+                    <h4 className="text-base font-semibold text-navy truncate">
+                      {connection.name}
+                    </h4>
+                    <div className="flex items-center gap-1.5 flex-shrink-0">
+                      <div className="flex-1 h-1.5 w-16 bg-slate-200 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-navy rounded-full"
+                          style={{ width: `${connection.connectionStrength * 10}%` }}
+                        />
+                      </div>
+                      <span className="text-xs font-medium text-slate-600">
+                        {connection.connectionStrength}/10
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-slate-600 mb-2">{connection.role}</p>
+                  <p className="text-xs text-slate-500">
+                    <span className="font-medium">{t.relationshipToClient}:</span>{' '}
+                    {connection.relationshipToClient}
+                  </p>
+                  {connection.suggestedNextStep && (
+                    <div className="mt-2 pt-2 border-t border-slate-200">
+                      <p className="text-xs text-slate-500">
+                        <span className="font-medium">{t.suggestedNextStep}:</span>{' '}
+                        {connection.suggestedNextStep}
+                      </p>
+                    </div>
+                  )}
+                </div>
+                <svg
+                  className={`w-5 h-5 flex-shrink-0 transition-transform ${
+                    selectedNode?.id === connection.id ? 'rotate-90' : ''
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {/* 3D Visualization - Secondary Gimmick */}
+        <div className="lg:col-span-1">
+          <div className="bg-slate-50 rounded-lg border border-slate-200 overflow-hidden sticky top-6">
+            <div className="h-[300px] relative">
               <ForceGraph3D
                 graphData={graphData}
                 nodeLabel={(node: any) => node.name}
                 nodeColor={(node: any) => (node.type === 'client' ? '#1e3a8a' : '#64748b')}
-                nodeVal={(node: any) => (node.type === 'client' ? 20 : 10)}
+                nodeVal={(node: any) => (node.type === 'client' ? 3 : 1.5)}
                 linkColor={() => '#cbd5e1'}
-                linkWidth={(link: any) => link.strength / 5}
-                linkOpacity={0.4}
+                linkWidth={(link: any) => link.strength / 8}
+                linkOpacity={0.3}
                 onNodeClick={handleNodeClick}
                 onNodeHover={handleNodeHover}
                 enableNodeDrag={false}
                 showNavInfo={false}
                 backgroundColor="#f8fafc"
+                d3VelocityDecay={0.3}
+                d3AlphaDecay={0.02}
+                warmupTicks={50}
+                cooldownTicks={100}
               />
             </div>
-            <div className="px-4 py-3 bg-white border-t border-slate-200">
-              <p className="text-xs text-slate-500 text-center">{t.clickToExplore}</p>
+            <div className="px-3 py-2 bg-white border-t border-slate-200">
+              <p className="text-xs text-slate-500 text-center">Network Visualization</p>
             </div>
-          </div>
-        </div>
-
-        {/* Connection Details Panel */}
-        <div className="lg:col-span-1">
-          <div className="bg-slate-50 rounded-lg border border-slate-200 p-4 h-[600px] overflow-y-auto">
-            {displayedNode && displayedNode.type === 'connection' ? (
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-lg font-semibold text-navy mb-2">{displayedNode.name}</h4>
-                  <p className="text-sm text-slate-600">{displayedNode.role}</p>
-                </div>
-
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
-                      {t.relationshipToClient}
-                    </p>
-                    <p className="text-sm text-slate-900">{displayedNode.relationshipToClient}</p>
-                  </div>
-
-                  {displayedNode.triggerEvent && (
-                    <div>
-                      <p className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
-                        {t.triggerEvent}
-                      </p>
-                      <p className="text-sm text-slate-900">{displayedNode.triggerEvent}</p>
-                    </div>
-                  )}
-
-                  {displayedNode.suggestedNextStep && (
-                    <div>
-                      <p className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
-                        {t.suggestedNextStep}
-                      </p>
-                      <p className="text-sm text-slate-900">{displayedNode.suggestedNextStep}</p>
-                    </div>
-                  )}
-
-                  {displayedNode.connectionStrength && (
-                    <div>
-                      <p className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
-                        Connection Strength
-                      </p>
-                      <div className="flex items-center gap-2">
-                        <div className="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-navy rounded-full transition-all"
-                            style={{ width: `${displayedNode.connectionStrength * 10}%` }}
-                          />
-                        </div>
-                        <span className="text-sm font-medium text-navy">
-                          {displayedNode.connectionStrength}/10
-                        </span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Guardrail */}
-                <div className="mt-6 pt-4 border-t border-slate-300">
-                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
-                    <p className="text-xs text-amber-900 font-medium flex items-start gap-2">
-                      <svg
-                        className="w-4 h-4 flex-shrink-0 mt-0.5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <span>{t.networkGuardrail}</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="h-full flex items-center justify-center text-center px-4">
-                <div>
-                  <svg
-                    className="w-16 h-16 mx-auto mb-4 text-slate-300"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                  <p className="text-sm text-slate-500">
-                    Click or hover on a connection node
-                    <br />
-                    to view details
-                  </p>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
