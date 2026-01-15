@@ -1,8 +1,29 @@
 import { OpenTopic } from "@/lib/data/types";
 import { formatDate } from "@/lib/data/clients";
+import CollapsibleSection from "./CollapsibleSection";
 
 interface OpenTopicsProps {
   topics: OpenTopic[];
+}
+
+// Generate topics summary
+function generateTopicsSummary(topics: OpenTopic[]): string {
+  if (topics.length === 0) {
+    return "No open topics at this time";
+  }
+
+  const highPriority = topics.filter(t => t.priority === "high").length;
+  const newTopics = topics.filter(t => t.status === "new").length;
+
+  if (highPriority > 0) {
+    return `${topics.length} open topic${topics.length > 1 ? 's' : ''}, ${highPriority} high priority requiring immediate action`;
+  }
+
+  if (newTopics > 0) {
+    return `${topics.length} open topic${topics.length > 1 ? 's' : ''}, ${newTopics} new and unassigned`;
+  }
+
+  return `${topics.length} open topic${topics.length > 1 ? 's' : ''}, all in progress`;
 }
 
 export default function OpenTopics({ topics }: OpenTopicsProps) {
@@ -34,11 +55,15 @@ export default function OpenTopics({ topics }: OpenTopicsProps) {
     }
   };
 
+  const summary = generateTopicsSummary(topics);
+
   return (
-    <div>
-      <h2 className="font-heading text-base uppercase tracking-wider text-donna-text-tertiary mb-4 pb-2 border-b border-donna-text-tertiary/20">
-        Open Topics
-      </h2>
+    <CollapsibleSection
+      title="Open Topics"
+      summary={summary}
+      defaultExpanded={false}
+      variant="muted"
+    >
       <div className="space-y-3">
         {topics.map((topic) => (
           <div
@@ -75,6 +100,6 @@ export default function OpenTopics({ topics }: OpenTopicsProps) {
           No open topics at this time
         </div>
       )}
-    </div>
+    </CollapsibleSection>
   );
 }

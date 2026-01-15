@@ -1,15 +1,20 @@
 import { ContactInfo as ContactInfoType } from "@/lib/data/types";
+import CollapsibleSection from "./CollapsibleSection";
 
 interface ContactInfoProps {
   contactInfo: ContactInfoType;
 }
 
 export default function ContactInfo({ contactInfo }: ContactInfoProps) {
+  const summary = `${contactInfo.email} • Prefers ${contactInfo.preferredContactMethod.replace("-", " ")}`;
+
   return (
-    <div>
-      <h2 className="font-heading text-base uppercase tracking-wider text-donna-text-tertiary mb-4 pb-2 border-b border-donna-text-tertiary/20">
-        Contact & Logistics
-      </h2>
+    <CollapsibleSection
+      title="Contact & Logistics"
+      summary={summary}
+      defaultExpanded={false}
+      variant="muted"
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <p className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-1">Email</p>
@@ -38,6 +43,6 @@ export default function ContactInfo({ contactInfo }: ContactInfoProps) {
           </p>
         </div>
       </div>
-    </div>
+    </CollapsibleSection>
   );
 }
