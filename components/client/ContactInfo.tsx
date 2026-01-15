@@ -6,32 +6,34 @@ interface ContactInfoProps {
 
 export default function ContactInfo({ contactInfo }: ContactInfoProps) {
   return (
-    <div className="bg-white rounded-lg border border-slate-200 p-6">
-      <h2 className="text-xl font-semibold text-slate-900 mb-4">Contact & Logistics</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <h2 className="font-heading text-base uppercase tracking-wider text-donna-text-tertiary mb-4 pb-2 border-b border-donna-text-tertiary/20">
+        Contact & Logistics
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <p className="text-xs text-slate-500 mb-1">Email</p>
-          <a href={`mailto:${contactInfo.email}`} className="text-sm text-navy hover:underline">
+          <p className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-1">Email</p>
+          <p className="font-body text-sm text-donna-text-primary">
             {contactInfo.email}
-          </a>
+          </p>
         </div>
         <div>
-          <p className="text-xs text-slate-500 mb-1">Phone</p>
-          <a href={`tel:${contactInfo.phone}`} className="text-sm text-navy hover:underline">
+          <p className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-1">Phone</p>
+          <p className="font-body text-sm text-donna-text-primary">
             {contactInfo.phone}
-          </a>
+          </p>
         </div>
         <div>
-          <p className="text-xs text-slate-500 mb-1">Address</p>
-          <p className="text-sm text-slate-700">
+          <p className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-1">Address</p>
+          <p className="font-body text-sm text-donna-text-secondary leading-relaxed">
             {contactInfo.address.street}<br />
             {contactInfo.address.city}, {contactInfo.address.state} {contactInfo.address.zipCode}<br />
             {contactInfo.address.country}
           </p>
         </div>
         <div>
-          <p className="text-xs text-slate-500 mb-1">Preferred Contact Method</p>
-          <p className="text-sm text-slate-700 capitalize">
+          <p className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-1">Preferred Contact Method</p>
+          <p className="font-body text-sm text-donna-text-primary capitalize">
             {contactInfo.preferredContactMethod.replace("-", " ")}
           </p>
         </div>

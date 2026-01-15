@@ -5,55 +5,66 @@ interface HeaderProps {
 }
 
 export default function Header({ client }: HeaderProps) {
-  const priorityLevel = client.priorityScore >= 80 ? "high" : client.priorityScore >= 60 ? "medium" : "low";
-
   return (
-    <div className="bg-white rounded-lg border border-slate-200 p-8">
-      <div className="flex items-start justify-between">
-        <div className="flex items-center gap-6">
-          {client.photo && (
-            <div className="w-24 h-24 rounded-full overflow-hidden bg-slate-200">
+    <div className="flex items-start gap-8 mb-8">
+      {/* Client Header Zone - LEFT ~65% */}
+      <div className="flex items-start gap-6 flex-grow">
+        {/* Large Portrait */}
+        {client.photo && (
+          <div className="relative flex-shrink-0">
+            <div className="w-36 h-36 rounded-full overflow-hidden soft-border-cyan glow-cyan">
               <img
                 src={client.photo}
                 alt={client.name}
                 className="w-full h-full object-cover"
               />
             </div>
-          )}
-          <div>
-            <div className="flex items-center gap-3 mb-2">
-              <h1 className="text-3xl font-bold text-slate-900">{client.name}</h1>
-              {client.panicIndicator && (
-                <div className="flex items-center gap-2 bg-red-50 px-3 py-1 rounded-full">
-                  <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                  <span className="text-sm font-medium text-red-700">Panic Indicator</span>
-                </div>
-              )}
-            </div>
-            <p className="text-lg text-slate-600 mb-1">{client.profession}</p>
-            <p className="text-sm text-slate-500">
-              Age {client.age} • {client.relationshipDuration} year{client.relationshipDuration !== 1 ? "s" : ""} relationship
-            </p>
+            {client.panicIndicator && (
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-donna-red rounded-full animate-pulse glow-red"></div>
+            )}
           </div>
-        </div>
-        <div className="text-right">
-          <div className="flex items-center gap-3 justify-end mb-1">
-            <span className="text-4xl font-bold text-navy">{client.priorityScore}</span>
-            <div className={`w-4 h-4 rounded-full ${
-              priorityLevel === "high" ? "bg-red-500" :
-              priorityLevel === "medium" ? "bg-yellow-500" :
-              "bg-green-500"
-            }`}></div>
-          </div>
-          <p className="text-sm text-slate-500">Priority Score</p>
+        )}
+
+        {/* Client Information */}
+        <div className="flex-grow pt-2">
+          <h1 className="font-heading text-4xl font-semibold text-donna-text-primary mb-3">
+            {client.name}
+          </h1>
+          <p className="font-body text-base text-donna-text-secondary mb-2">
+            {client.profession}
+          </p>
+          <p className="font-body text-sm text-donna-text-tertiary">
+            Age {client.age} • {client.relationshipDuration} year{client.relationshipDuration !== 1 ? "s" : ""} relationship
+          </p>
         </div>
       </div>
 
-      {/* Advisory Disclaimer */}
-      <div className="mt-6 p-4 bg-slate-50 rounded-lg border border-slate-200">
-        <p className="text-xs text-slate-600 leading-relaxed">
-          <strong>Advisory Notice:</strong> This intelligence file is for informational purposes only. All recommendations are advisory in nature. Final investment decisions and client communications remain the sole responsibility of the assigned wealth manager. This tool does not execute trades or contact clients directly.
-        </p>
+      {/* Priority Score Block - RIGHT ~35% */}
+      <div className="flex-shrink-0 text-right pt-2">
+        {/* Large Priority Score - The system verdict */}
+        <div className="mb-2">
+          <div className="font-heading text-7xl font-bold text-donna-cyan glow-cyan-strong leading-none">
+            {client.priorityScore}
+          </div>
+          <div className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mt-3">
+            Priority Score
+          </div>
+        </div>
+
+        {/* Panic Indicator if active */}
+        {client.panicIndicator && (
+          <div className="mt-4 flex items-center justify-end gap-2">
+            <div className="w-2 h-2 bg-donna-red rounded-full animate-pulse"></div>
+            <span className="font-heading text-sm uppercase tracking-wide text-donna-red">
+              PANIC
+            </span>
+          </div>
+        )}
+
+        {/* Advisory subtext */}
+        <div className="mt-6 font-body text-xs text-donna-text-tertiary leading-relaxed">
+          Advisory only. Not directive.
+        </div>
       </div>
     </div>
   );

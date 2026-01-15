@@ -11,30 +11,15 @@ interface RecentCommunicationsProps {
 export default function RecentCommunications({ communications }: RecentCommunicationsProps) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  const getChannelIcon = (channel: string) => {
-    switch (channel) {
-      case "email":
-        return "✉";
-      case "phone":
-        return "☎";
-      case "in-person":
-        return "👤";
-      case "video-call":
-        return "📹";
-      default:
-        return "💬";
-    }
-  };
-
-  const getSentimentColor = (sentiment?: string) => {
+  const getSentimentStyles = (sentiment?: string) => {
     switch (sentiment) {
       case "positive":
-        return "bg-green-100 text-green-800";
+        return "bg-donna-cyan/10 text-donna-cyan border-donna-cyan/30";
       case "negative":
-        return "bg-red-100 text-red-800";
+        return "bg-donna-red/10 text-donna-red border-donna-red/30";
       case "neutral":
       default:
-        return "bg-slate-100 text-slate-700";
+        return "bg-donna-bg-tertiary text-donna-text-secondary border-donna-text-tertiary/20";
     }
   };
 
@@ -42,39 +27,43 @@ export default function RecentCommunications({ communications }: RecentCommunica
   const recentComms = communications.slice(0, 5);
 
   return (
-    <div className="bg-white rounded-lg border border-slate-200 p-6">
-      <h2 className="text-xl font-semibold text-slate-900 mb-4">Recent Communications</h2>
+    <div>
+      <h2 className="font-heading text-base uppercase tracking-wider text-donna-text-tertiary mb-4 pb-2 border-b border-donna-text-tertiary/20">
+        Recent Communications
+      </h2>
       <div className="space-y-4">
         {recentComms.map((comm, index) => (
           <div
             key={index}
-            className="border-l-4 border-navy pl-4 py-2"
+            className="relative pl-4 py-2 border-l border-donna-cyan/50"
           >
+            {/* Timeline dot */}
+            <div className="absolute left-0 top-4 -translate-x-1/2 w-2 h-2 bg-donna-cyan rounded-full"></div>
+
             <div className="flex items-start justify-between mb-2">
-              <div className="flex items-center gap-2">
-                <span className="text-lg">{getChannelIcon(comm.channel)}</span>
-                <span className="text-xs font-semibold uppercase tracking-wide text-slate-600">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-heading text-xs uppercase tracking-wide text-donna-text-tertiary">
                   {comm.channel.replace("-", " ")}
                 </span>
                 {comm.sentiment && (
-                  <span className={`text-xs px-2 py-0.5 rounded-full ${getSentimentColor(comm.sentiment)}`}>
+                  <span className={`font-heading text-xs px-2 py-0.5 rounded border ${getSentimentStyles(comm.sentiment)}`}>
                     {comm.sentiment}
                   </span>
                 )}
               </div>
-              <span className="text-xs text-slate-500">{formatDate(comm.date)}</span>
+              <span className="font-body text-xs text-donna-text-tertiary">{formatDate(comm.date)}</span>
             </div>
-            <p className="text-sm text-slate-700 mb-2">{comm.summary}</p>
+            <p className="font-body text-sm text-donna-text-secondary mb-2">{comm.summary}</p>
             {comm.fullContent && (
               <>
                 <button
                   onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                  className="text-xs text-navy hover:underline font-medium"
+                  className="font-body text-xs text-donna-cyan hover:text-donna-text-primary transition-smooth font-medium"
                 >
                   {expandedIndex === index ? "Hide details" : "View full content"}
                 </button>
                 {expandedIndex === index && (
-                  <div className="mt-3 p-3 bg-slate-50 rounded text-xs text-slate-700 leading-relaxed border border-slate-200">
+                  <div className="mt-3 p-3 bg-donna-bg-tertiary rounded font-body text-xs text-donna-text-secondary leading-relaxed border border-donna-text-tertiary/20">
                     {comm.fullContent}
                   </div>
                 )}

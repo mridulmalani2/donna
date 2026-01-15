@@ -7,62 +7,64 @@ interface AssetsOverviewProps {
 
 export default function AssetsOverview({ assets }: AssetsOverviewProps) {
   return (
-    <div className="bg-white rounded-lg border border-slate-200 p-6">
-      <h2 className="text-xl font-semibold text-slate-900 mb-4">Assets Overview</h2>
+    <div>
+      <h2 className="font-heading text-base uppercase tracking-wider text-donna-text-tertiary mb-4 pb-2 border-b border-donna-text-tertiary/20">
+        Assets Overview
+      </h2>
 
       <div className="mb-6">
-        <p className="text-xs text-slate-500 mb-1">Total Assets Under Management</p>
-        <p className="text-3xl font-bold text-navy">{formatCurrency(assets.totalAUM)}</p>
+        <p className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-2">Total Assets Under Management</p>
+        <p className="font-heading text-4xl font-bold text-donna-cyan glow-cyan">{formatCurrency(assets.totalAUM)}</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <h3 className="text-sm font-semibold text-slate-900 mb-3">Asset Allocation</h3>
-          <div className="space-y-3">
+          <h3 className="font-heading text-sm font-medium text-donna-text-primary mb-4">Asset Allocation</h3>
+          <div className="space-y-4">
             <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span className="text-slate-700">Equities</span>
-                <span className="font-semibold text-slate-900">{assets.allocation.equities}%</span>
+              <div className="flex justify-between font-body text-sm mb-1.5">
+                <span className="text-donna-text-secondary">Equities</span>
+                <span className="font-heading font-semibold text-donna-text-primary">{assets.allocation.equities}%</span>
               </div>
-              <div className="w-full bg-slate-200 rounded-full h-2">
+              <div className="w-full bg-donna-bg-secondary rounded-full h-1.5">
                 <div
-                  className="bg-navy h-2 rounded-full"
+                  className="bg-donna-cyan h-1.5 rounded-full glow-cyan"
                   style={{ width: `${assets.allocation.equities}%` }}
                 ></div>
               </div>
             </div>
             <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span className="text-slate-700">Fixed Income</span>
-                <span className="font-semibold text-slate-900">{assets.allocation.fixedIncome}%</span>
+              <div className="flex justify-between font-body text-sm mb-1.5">
+                <span className="text-donna-text-secondary">Fixed Income</span>
+                <span className="font-heading font-semibold text-donna-text-primary">{assets.allocation.fixedIncome}%</span>
               </div>
-              <div className="w-full bg-slate-200 rounded-full h-2">
+              <div className="w-full bg-donna-bg-secondary rounded-full h-1.5">
                 <div
-                  className="bg-slate-600 h-2 rounded-full"
+                  className="bg-donna-blue h-1.5 rounded-full"
                   style={{ width: `${assets.allocation.fixedIncome}%` }}
                 ></div>
               </div>
             </div>
             <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span className="text-slate-700">Alternatives</span>
-                <span className="font-semibold text-slate-900">{assets.allocation.alternatives}%</span>
+              <div className="flex justify-between font-body text-sm mb-1.5">
+                <span className="text-donna-text-secondary">Alternatives</span>
+                <span className="font-heading font-semibold text-donna-text-primary">{assets.allocation.alternatives}%</span>
               </div>
-              <div className="w-full bg-slate-200 rounded-full h-2">
+              <div className="w-full bg-donna-bg-secondary rounded-full h-1.5">
                 <div
-                  className="bg-slate-400 h-2 rounded-full"
+                  className="bg-donna-text-secondary h-1.5 rounded-full"
                   style={{ width: `${assets.allocation.alternatives}%` }}
                 ></div>
               </div>
             </div>
             <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span className="text-slate-700">Cash</span>
-                <span className="font-semibold text-slate-900">{assets.allocation.cash}%</span>
+              <div className="flex justify-between font-body text-sm mb-1.5">
+                <span className="text-donna-text-secondary">Cash</span>
+                <span className="font-heading font-semibold text-donna-text-primary">{assets.allocation.cash}%</span>
               </div>
-              <div className="w-full bg-slate-200 rounded-full h-2">
+              <div className="w-full bg-donna-bg-secondary rounded-full h-1.5">
                 <div
-                  className="bg-slate-300 h-2 rounded-full"
+                  className="bg-donna-text-tertiary h-1.5 rounded-full"
                   style={{ width: `${assets.allocation.cash}%` }}
                 ></div>
               </div>
@@ -71,21 +73,21 @@ export default function AssetsOverview({ assets }: AssetsOverviewProps) {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-slate-900 mb-3">Key Metrics</h3>
-          <div className="space-y-3">
+          <h3 className="font-heading text-sm font-medium text-donna-text-primary mb-4">Key Metrics</h3>
+          <div className="space-y-4">
             <div>
-              <p className="text-xs text-slate-500 mb-1">Dominant Exposure</p>
-              <p className="text-sm text-slate-700">{assets.dominantExposure}</p>
+              <p className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-1">Dominant Exposure</p>
+              <p className="font-body text-sm text-donna-text-secondary">{assets.dominantExposure}</p>
             </div>
             {assets.recentChange && (
               <div>
-                <p className="text-xs text-slate-500 mb-1">Recent Change</p>
-                <div className={`text-sm font-semibold ${
-                  assets.recentChange.direction === "increase" ? "text-green-600" : "text-red-600"
+                <p className="font-heading text-xs uppercase tracking-wider text-donna-text-tertiary mb-1">Recent Change</p>
+                <div className={`font-heading text-sm font-semibold ${
+                  assets.recentChange.direction === "increase" ? "text-donna-cyan" : "text-donna-red"
                 }`}>
                   {assets.recentChange.direction === "increase" ? "+" : ""}
                   {formatCurrency(Math.abs(assets.recentChange.amount))} ({assets.recentChange.percentage}%)
-                  <span className="text-xs text-slate-500 font-normal ml-1">
+                  <span className="font-body text-xs text-donna-text-tertiary font-normal ml-1">
                     over {assets.recentChange.timeframe}
                   </span>
                 </div>

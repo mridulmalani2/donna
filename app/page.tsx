@@ -2,6 +2,7 @@
 
 import { getAllClientsSummary, getClientStats } from "@/lib/data/clients";
 import ClientList from "@/components/dashboard/ClientList";
+import MacroStatsBar from "@/components/dashboard/MacroStatsBar";
 import LanguageToggle from "@/components/LanguageToggle";
 import { useTranslation } from "@/lib/context/LanguageContext";
 
@@ -11,57 +12,45 @@ export default function HomePage() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Header */}
-      <header className="bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div className="min-h-screen bg-donna-bg-primary">
+      {/* Header Bar - Minimal, not dominant */}
+      <header className="bg-donna-bg-secondary/30 backdrop-blur-sm border-b border-donna-text-tertiary/10">
+        <div className="max-w-screen-2xl mx-auto px-8 py-5">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-navy">{t.appName}</h1>
-              <p className="text-slate-600 mt-1">{t.appSubtitle}</p>
+              <h1 className="font-heading text-2xl font-semibold text-donna-text-primary">
+                {t.appName}
+              </h1>
+              <p className="font-body text-sm text-donna-text-tertiary mt-0.5">
+                {t.appSubtitle}
+              </p>
             </div>
             <LanguageToggle />
           </div>
         </div>
       </header>
 
-      {/* Stats Overview */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-lg border border-slate-200 p-6">
-            <p className="text-sm text-slate-600 mb-1">{t.totalClients}</p>
-            <p className="text-3xl font-bold text-navy">{stats.totalClients}</p>
-          </div>
-          <div className="bg-white rounded-lg border border-slate-200 p-6">
-            <p className="text-sm text-slate-600 mb-1">{t.totalAUM}</p>
-            <p className="text-3xl font-bold text-navy">
-              ${(stats.totalAUM / 1000000000).toFixed(2)}B
-            </p>
-          </div>
-          <div className="bg-white rounded-lg border border-slate-200 p-6">
-            <p className="text-sm text-slate-600 mb-1 flex items-center gap-2">
-              {t.panicIndicators}
-              <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-            </p>
-            <p className="text-3xl font-bold text-red-600">{stats.panicClients}</p>
-          </div>
-          <div className="bg-white rounded-lg border border-slate-200 p-6">
-            <p className="text-sm text-slate-600 mb-1">{t.avgPriorityScore}</p>
-            <p className="text-3xl font-bold text-navy">{stats.avgPriorityScore}</p>
-          </div>
-        </div>
+      {/* Macro Stats Bar - Answers "What kind of day is this?" */}
+      <MacroStatsBar
+        totalClients={stats.totalClients}
+        totalAUM={stats.totalAUM}
+        panicClients={stats.panicClients}
+        avgPriorityScore={stats.avgPriorityScore}
+      />
 
-        {/* Priority Dashboard Section */}
-        <div className="mb-6">
-          <h2 className="text-2xl font-semibold text-slate-900 mb-2">
+      {/* Main Content Area */}
+      <div className="max-w-screen-2xl mx-auto px-8 pb-16">
+        {/* Priority Dashboard Section Title */}
+        <div className="mb-8">
+          <h2 className="font-heading text-xl font-semibold text-donna-text-primary mb-2">
             {t.dashboardTitle}
           </h2>
-          <p className="text-slate-600">
+          <p className="font-body text-sm text-donna-text-secondary">
             {t.dashboardSubtitle}
           </p>
         </div>
 
-        {/* Client List */}
+        {/* Client Prioritization List */}
         <ClientList clients={clients} />
       </div>
     </div>

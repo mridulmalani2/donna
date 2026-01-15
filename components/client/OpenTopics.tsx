@@ -6,70 +6,72 @@ interface OpenTopicsProps {
 }
 
 export default function OpenTopics({ topics }: OpenTopicsProps) {
-  const getStatusColor = (status: string) => {
+  const getStatusStyles = (status: string) => {
     switch (status) {
       case "new":
-        return "bg-blue-100 text-blue-800 border-blue-200";
+        return "bg-donna-cyan/10 text-donna-cyan border-donna-cyan/30";
       case "in-progress":
-        return "bg-yellow-100 text-yellow-800 border-yellow-200";
+        return "bg-donna-amber/10 text-donna-amber border-donna-amber/30";
       case "pending-client":
-        return "bg-purple-100 text-purple-800 border-purple-200";
+        return "bg-donna-blue/10 text-donna-blue border-donna-blue/30";
       case "resolved":
-        return "bg-green-100 text-green-800 border-green-200";
+        return "bg-donna-text-secondary/10 text-donna-text-secondary border-donna-text-secondary/30";
       default:
-        return "bg-slate-100 text-slate-800 border-slate-200";
+        return "bg-donna-bg-tertiary text-donna-text-secondary border-donna-text-tertiary/20";
     }
   };
 
   const getPriorityColor = (priority?: string) => {
     switch (priority) {
       case "high":
-        return "text-red-600";
+        return "text-donna-red";
       case "medium":
-        return "text-yellow-600";
+        return "text-donna-amber";
       case "low":
-        return "text-green-600";
+        return "text-donna-cyan";
       default:
-        return "text-slate-600";
+        return "text-donna-text-tertiary";
     }
   };
 
   return (
-    <div className="bg-white rounded-lg border border-slate-200 p-6">
-      <h2 className="text-xl font-semibold text-slate-900 mb-4">Open Topics</h2>
-      <div className="space-y-4">
+    <div>
+      <h2 className="font-heading text-base uppercase tracking-wider text-donna-text-tertiary mb-4 pb-2 border-b border-donna-text-tertiary/20">
+        Open Topics
+      </h2>
+      <div className="space-y-3">
         {topics.map((topic) => (
           <div
             key={topic.id}
-            className="p-4 border border-slate-200 rounded-lg hover:border-navy transition-colors"
+            className="p-4 bg-donna-bg-secondary/30 border border-donna-text-tertiary/10 rounded-lg hover:border-donna-cyan/30 transition-smooth"
           >
             <div className="flex items-start justify-between mb-2">
-              <h3 className="text-sm font-semibold text-slate-900 flex-1">{topic.title}</h3>
+              <h3 className="font-heading text-sm font-medium text-donna-text-primary flex-1">{topic.title}</h3>
               {topic.priority && (
-                <span className={`text-xs font-semibold uppercase ${getPriorityColor(topic.priority)}`}>
+                <span className={`font-heading text-xs font-semibold uppercase tracking-wide ${getPriorityColor(topic.priority)}`}>
                   {topic.priority}
                 </span>
               )}
             </div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className={`text-xs px-2 py-1 rounded border ${getStatusColor(topic.status)}`}>
+            <div className="flex items-center gap-2 mb-2 flex-wrap">
+              <span className={`font-heading text-xs px-2 py-1 rounded border ${getStatusStyles(topic.status)}`}>
                 {topic.status.replace("-", " ")}
               </span>
-              <span className="text-xs text-slate-500">
+              <span className="font-body text-xs text-donna-text-tertiary">
                 Owner: {topic.owner}
               </span>
-              <span className="text-xs text-slate-500">
+              <span className="font-body text-xs text-donna-text-tertiary">
                 • Created {formatDate(topic.createdDate)}
               </span>
             </div>
             {topic.description && (
-              <p className="text-sm text-slate-700 mt-2">{topic.description}</p>
+              <p className="font-body text-sm text-donna-text-secondary mt-2">{topic.description}</p>
             )}
           </div>
         ))}
       </div>
       {topics.length === 0 && (
-        <div className="text-center py-8 text-slate-500">
+        <div className="text-center py-8 font-body text-donna-text-tertiary">
           No open topics at this time
         </div>
       )}

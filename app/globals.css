@@ -1,45 +1,112 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
-  --navy: #1e3a5f;
-  --slate-50: #f8fafc;
-  --slate-100: #f1f5f9;
-  --slate-200: #e2e8f0;
-  --slate-300: #cbd5e1;
-  --slate-400: #94a3b8;
-  --slate-500: #64748b;
-  --slate-600: #475569;
-  --slate-700: #334155;
-  --slate-800: #1e293b;
-  --slate-900: #0f172a;
+  /* Donna Dark Design System */
+
+  /* Backgrounds - Deep Space Aesthetic */
+  --donna-bg-primary: #0B1220;
+  --donna-bg-secondary: #0E1626;
+  --donna-bg-tertiary: #111B2E;
+  --donna-bg-overlay: rgba(20, 30, 50, 0.6);
+
+  /* Accents - Cyan Intelligence Cues */
+  --donna-cyan: #00D4FF;
+  --donna-blue: #3B82F6;
+  --donna-glow: rgba(0, 212, 255, 0.2);
+
+  /* Alerts - Use Sparingly */
+  --donna-red: #EF4444;
+  --donna-amber: #F59E0B;
+
+  /* Text Hierarchy */
+  --donna-text-primary: #FFFFFF;
+  --donna-text-secondary: #94A3B8;
+  --donna-text-tertiary: #64748B;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-navy: var(--navy);
-  --color-slate-50: var(--slate-50);
-  --color-slate-100: var(--slate-100);
-  --color-slate-200: var(--slate-200);
-  --color-slate-300: var(--slate-300);
-  --color-slate-400: var(--slate-400);
-  --color-slate-500: var(--slate-500);
-  --color-slate-600: var(--slate-600);
-  --color-slate-700: var(--slate-700);
-  --color-slate-800: var(--slate-800);
-  --color-slate-900: var(--slate-900);
-  --font-sans: var(--font-inter);
+  /* Background Colors */
+  --color-donna-bg-primary: var(--donna-bg-primary);
+  --color-donna-bg-secondary: var(--donna-bg-secondary);
+  --color-donna-bg-tertiary: var(--donna-bg-tertiary);
+  --color-donna-bg-overlay: var(--donna-bg-overlay);
+
+  /* Accent Colors */
+  --color-donna-cyan: var(--donna-cyan);
+  --color-donna-blue: var(--donna-blue);
+  --color-donna-glow: var(--donna-glow);
+
+  /* Alert Colors */
+  --color-donna-red: var(--donna-red);
+  --color-donna-amber: var(--donna-amber);
+
+  /* Text Colors */
+  --color-donna-text-primary: var(--donna-text-primary);
+  --color-donna-text-secondary: var(--donna-text-secondary);
+  --color-donna-text-tertiary: var(--donna-text-tertiary);
+
+  /* Font Families */
+  --font-montserrat: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-heading: var(--font-montserrat);
+  --font-body: var(--font-inter);
+  --font-sans: var(--font-inter);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--donna-bg-primary);
+  color: var(--donna-text-primary);
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--donna-text-primary);
+}
+
+/* Utility classes for glow effects */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+}
+
+.glow-cyan-strong {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
+}
+
+.glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
+}
+
+/* Smooth transitions for interactions */
+.transition-smooth {
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* No hard borders philosophy */
+.soft-border-cyan {
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.soft-border-blue {
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Background depth layers */
+.bg-depth-1 {
+  background: linear-gradient(135deg, var(--donna-bg-secondary) 0%, var(--donna-bg-primary) 100%);
+}
+
+.bg-depth-2 {
+  background: linear-gradient(135deg, var(--donna-bg-tertiary) 0%, var(--donna-bg-secondary) 100%);
 }
