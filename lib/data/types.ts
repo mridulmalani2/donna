@@ -1,4 +1,4 @@
-// Core data types for Client Intelligence File application
+// Core data types for Donna (Client Intelligence File application)
 
 export interface Client {
   id: string;
@@ -15,6 +15,7 @@ export interface Client {
   redFlagMovements?: RedFlagMovement[];
   communications: Communication[];
   openTopics: OpenTopic[];
+  prospectionNetwork?: ProspectionNetwork;
   lastContactDate: string; // ISO date string
 }
 
@@ -99,6 +100,20 @@ export interface ChatbotMessage {
   role: "user" | "assistant";
   content: string;
   timestamp: string;
+}
+
+export interface ProspectionNetwork {
+  connections: NetworkConnection[];
+}
+
+export interface NetworkConnection {
+  id: string;
+  name: string;
+  role: string;
+  relationshipToClient: string;
+  triggerEvent?: string;
+  suggestedNextStep?: string;
+  connectionStrength: number; // 1-10, affects visual distance
 }
 
 // Dashboard-specific type for shallow client data

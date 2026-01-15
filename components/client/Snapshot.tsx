@@ -6,6 +6,7 @@ import AssetsOverview from "./AssetsOverview";
 import RedFlagMovements from "./RedFlagMovements";
 import RecentCommunications from "./RecentCommunications";
 import OpenTopics from "./OpenTopics";
+import ProspectionNetwork from "./ProspectionNetwork";
 
 interface SnapshotProps {
   client: Client;
@@ -21,6 +22,12 @@ export default function Snapshot({ client }: SnapshotProps) {
       <RedFlagMovements movements={client.redFlagMovements} />
       <RecentCommunications communications={client.communications} />
       <OpenTopics topics={client.openTopics} />
+      {client.prospectionNetwork && (
+        <ProspectionNetwork
+          clientName={client.name}
+          network={client.prospectionNetwork}
+        />
+      )}
     </div>
   );
 }
